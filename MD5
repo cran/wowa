@@ -1,0 +1,16 @@
+c84ded8c8facbcd6156ef5898d92b717 *DESCRIPTION
+adeeebe0e3aab6ea279ef7e67be7884c *NAMESPACE
+c02159fde8c89cc8d67bef95c4a9a647 *R/RcppExports.R
+4c2289b2fce471c041374ed3ff205922 *inst/wowa-theory.pdf
+be30089b5402a397dadb936d532870d7 *man/ImplicitWOWA.Rd
+da14a53cbf42979262b8e275300230dd *man/OWA.Rd
+7df3041b1210422c692895f8ca6bf179 *man/WAM.Rd
+0c5cfa8405c92368d509e53ea1c75a84 *man/WAn.Rd
+ab2bcf0a2c45038973006f73cab759cf *man/WOWATree.Rd
+7f4959d4c237e439691f3e75d38d0cc9 *man/weightedOWAQuantifier.Rd
+c9834e3deb0da2d35e17210d8dce4b04 *man/weightedOWAQuantifierBuild.Rd
+740c2d267d178cb8d3d08b4584d28c9e *man/wowa.Rd
+b1212d6f69c99125504dffab17b51706 *src/RcppExports.cpp
+0abd507dd42b917698c2dfdc737c763d *src/monspline.h
+84c71606a7024aa17f2b40b4487caca5 *src/wowa.cpp
+65faa212270aeff0b9d20cb2bf5f3b63 *src/wowawrapper.cpp
