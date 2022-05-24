@@ -1,8 +1,8 @@
 Package: wowa
 Type: Package
 Title: Weighted Ordered Weighted Average
-Version: 1.0.1
-Date: 2021-02-01
+Version: 1.0.2
+Date: 2022-05-22
 Authors@R: c(person("Gleb", "Beliakov", role = c("aut", "cre"),
 		email = "gleb@deakin.edu.au"),
 		person("Daniela", "Calderon", role = "aut"))
@@ -15,12 +15,12 @@ Description: Introduce weights into Ordered Weighted Averages and extend bivaria
 	G. Beliakov, J.J. Dujmovic (2016) <doi:10.1016/j.ins.2015.10.040>,
 	J.J. Dujmovic and G. Beliakov (2017) <doi:10.1002/int.21828>.
 License: LGPL-3
-LazyData: TRUE
+LazyData: FALSE
 Imports: Rcpp (>= 1.0.0)
 LinkingTo: Rcpp
 RoxygenNote: 5.0.1
 NeedsCompilation: yes
 Copyright: Gleb Beliakov
-Packaged: 2021-02-01 03:24:35 UTC; gleb
+Packaged: 2022-05-24 00:50:36 UTC; gleb
 Repository: CRAN
-Date/Publication: 2021-02-05 09:40:02 UTC
+Date/Publication: 2022-05-24 08:30:01 UTC

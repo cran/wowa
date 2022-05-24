@@ -18,6 +18,11 @@
 \value{
   \item{output}{The value of the WAM function }
 }
+\references{
+  %% ~put references to the literature/web site here ~
+[1]G. Beliakov, H. Bustince, and T. Calvo. A Practical Guide to Averaging Functions.
+	Springer, Berlin, Heidelberg, 2016. 
+}
 \author{
   %%  ~~who you are~~
     Gleb Beliakov, Daniela L. Calderon, Deakin University

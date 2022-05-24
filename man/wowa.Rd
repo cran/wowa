@@ -11,7 +11,7 @@
 \details{Lists the functions implemented in this package.
 }  
   \value{
-    \item{}{No return value, called for printing only.}
+    \item{output}{No return value, called for printing only.}
   }
 
 

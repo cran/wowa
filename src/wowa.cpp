@@ -254,7 +254,7 @@ double WA2(double x1,double x2,double W, int L, double(*F)( double, double))
   }                    // Function F is the symmetric base aggregator.
   return y;            // y is the aggregated value in the case where 
 }             
-double WAn(double * x, double * w, int n, int L, double(*F)( double, double))
+double WAnABL(double * x, double * w, int n, int L, double(*F)( double, double))
 {
 	--n;
 	double Wsum=w[n], y=x[n];
@@ -266,6 +266,64 @@ double WAn(double * x, double * w, int n, int L, double(*F)( double, double))
 	}
 
 	return y;
+}
+
+
+
+
+template<typename INT>
+double node_RWAnT(double x[], INT N[], INT m, volatile int & k, double(*F)(double,double))
+{
+   /* recursive function in the binary tree processing 
+      Parameters: x - input vector, N vector of multiplicities of the components of x
+      m current level of recursion counted from L (root node) downwards to 0 (leaves)
+      k - input-output parameter, points to the current index of x[k] being processed
+
+ */	
+	INT C= (INT)1<<m; /* C=2^m*/
+	if(N[k]>= C) {  /* we use idempotency here to prune the tree */
+		N[k] -= C;
+		double y=x[k];
+		if(N[k]<=0) k++; /* once all the repeated components x[k] are exhausted, move to next k */
+					/* hence k is passed by reference */
+		return y;
+	}
+
+	/* tree not pruned, process the children nodes */
+	return F( node_RWAnT(x,N,m-1,k,F), node_RWAnT(x,N,m-1,k,F) );
+}
+
+template<typename INT>
+double RWAnT(double  x[], double w[], int n,    double(*F)(double,double), INT L)
+/*
+ Function F is the symmetric base aggregator.
+ w[ ] = array of weights of inputs x[ ], n is the dimension of x and w
+ the weights must add to one and be non-negative
+ L = number of binary tree levels
+ Run time = O[(n-1)L]
+*/
+{
+	INT t=0;
+	volatile int k=0;
+	INT C=(INT)1<<L;   /* C=2^m*/
+/* prepare the multiplicites based on the weights w */
+
+	INT* N= new INT[n];  /* multiplicities of x based on the weights */
+	for(int i=0;i<n-1;i++)
+	{
+	   	N[i]=w[i]*C+0.5; /**/
+		t+=N[i];
+	}	
+	N[n-1]=C-t;
+
+    double r=node_RWAnT(x,N,L,k,F);
+    delete[] N;
+    return r;
+}
+
+double WAn(double * x, double * w, int n, int L, double(*F)( double, double))
+{
+	return RWAnT(x,w,n,F,(long int)L);
 }
 
 /*

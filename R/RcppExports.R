@@ -1,7 +1,7 @@
 # wowa Package v4.0
 #SEXP way Rcpp
-require("Rcpp")
-#library(Rcpp)
+
+library(Rcpp)
 
 
 wowa <- function()
@@ -12,7 +12,7 @@ wowa <- function()
   
   print("wowa.OWA([inputs],[OWA weights])")
   print("wowa.WAM([inputs],[weights])")
-  print("wowa.WOWATree([inputs], [ Weights], [dimension], [n-variate function to extend],[tree depth])")
+  print("wowa.weightedf([inputs], [ Weights], [dimension], [n-variate function to extend],[tree depth])")
   print("wowa.weightedOWAQuantifierBuild([number of variables],[input weights], [Associated OWA Weights])")
   print("wowa.weightedOWAQuantifier([number of variables],[input weights], [Associated OWA Weights],[quantifier] )")
   print("wowa.ImplicitWOWA([inputs],[Weights], [Associated OWA Weights],[dimension])")
@@ -33,7 +33,7 @@ wowa.OWA <- function(n, x, w) {
 
 #// OWA_OWA is defined in Rcppexports.cpp. same for the following functions
 
-wowa.WOWATree <- function(x, p, w, n, Fn, L) {
+wowa.weightedf <- function(x, p, w, n, Fn, L) {
   return(.Call('WOWA_weightedf', PACKAGE = 'wowa', x, p, w, n, Fn, L  ))
 }
 
